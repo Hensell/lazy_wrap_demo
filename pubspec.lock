@@ -79,10 +79,10 @@ packages:
     dependency: "direct main"
     description:
       name: lazy_wrap
-      sha256: d1d534917f7d07f9e67f6453c4867db7eb3c815cfba7b0c81d314e486408c247
+      sha256: "8624da2b29ed778eb7a3fb9c960ae65e7ed4ae68e2e49058bbbdc1e5de35f54b"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.8+1"
+    version: "0.0.8+5"
   leak_tracker:
     dependency: transitive
     description:

@@ -135,63 +135,32 @@ class _MyHomePageState extends State<MyHomePage> {
                       ? Colors.white
                       : Colors.black;
 
-                  if (useDynamicMeasurement) {
-                    return AnimatedContainer(
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.easeOut,
-                      width: cachedWidth(index),
-                      height: cachedHeight(index),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(borderRadiusValue),
-                        color: baseColor,
-                        boxShadow: [
-                          BoxShadow(
-                            color: baseColor.withValues(alpha: 0.5),
-                            blurRadius: 10,
-                            spreadRadius: 5,
-                            offset: const Offset(0, 4),
-                          ),
-                        ],
-                      ),
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Item ${index + 1}',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: textColor,
-                          fontWeight: FontWeight.w600,
+                  return Container(
+                    width: cachedWidth(index),
+                    height: cachedHeight(index),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(borderRadiusValue),
+                      color: baseColor,
+                      boxShadow: [
+                        BoxShadow(
+                          color: baseColor.withValues(alpha: 0.5),
+                          blurRadius: 10,
+                          spreadRadius: 5,
+                          offset: const Offset(0, 4),
                         ),
+                      ],
+                    ),
+                    alignment: Alignment.center,
+                    child: Text(
+                      'Item ${index + 1}',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: textColor,
+                        fontWeight: FontWeight.w600,
                       ),
-                    );
-                  } else {
-                    return Container(
-                      width: cachedWidth(index),
-                      height: cachedHeight(index),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(borderRadiusValue),
-                        color: baseColor,
-                        boxShadow: [
-                          BoxShadow(
-                            color: baseColor.withValues(alpha: 0.5),
-                            blurRadius: 10,
-                            spreadRadius: 5,
-                            offset: const Offset(0, 4),
-                          ),
-                        ],
-                      ),
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Item ${index + 1}',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: textColor,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    );
-                  }
+                    ),
+                  );
                 },
               ),
             ),
