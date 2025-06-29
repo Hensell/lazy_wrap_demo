@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final random = Random();
 
   double borderRadiusValue = 15;
-  bool useDynamicMeasurement = true;
+  bool useDynamicMeasurement = false;
 
   final Map<int, double> widthCache = {};
   final Map<int, double> heightCache = {};
