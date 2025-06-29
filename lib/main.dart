@@ -135,9 +135,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ? Colors.white
                       : Colors.black;
 
-                  return AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeOut,
+                  return Container(
                     width: cachedWidth(index),
                     height: cachedHeight(index),
                     decoration: BoxDecoration(
