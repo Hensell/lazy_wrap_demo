@@ -373,14 +373,6 @@ class _GridScreenState extends State<GridScreen> {
                                 borderRadiusValue,
                               ),
                               color: baseColor,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: baseColor.withOpacity(0.15),
-                                  blurRadius: 12,
-                                  spreadRadius: 5,
-                                  offset: const Offset(0, 4),
-                                ),
-                              ],
                             ),
                             alignment: Alignment.center,
                             child: Text(
@@ -422,14 +414,6 @@ class _GridScreenState extends State<GridScreen> {
                                 borderRadiusValue,
                               ),
                               color: baseColor,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: baseColor.withOpacity(0.10),
-                                  blurRadius: 12,
-                                  spreadRadius: 3,
-                                  offset: const Offset(0, 4),
-                                ),
-                              ],
                             ),
                             alignment: Alignment.center,
                             child: Text(
