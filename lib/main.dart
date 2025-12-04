@@ -355,6 +355,12 @@ class _GridScreenState extends State<GridScreen> {
                         itemCount: 999999,
                         spacing: 12,
                         runSpacing: 12,
+                        fadeInItems: true, // Default: true
+                        fadeInDuration: Duration(milliseconds: 1200),
+                        fadeInCurve: Curves.easeOut,
+
+                        batchSize: 500,
+                        cacheExtent: 1000,
                         scrollDirection: scrollDirection,
                         itemBuilder: (context, index) {
                           final baseColor = Colors
