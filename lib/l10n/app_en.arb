@@ -1,0 +1,48 @@
+{
+  "@@locale": "en",
+  "appTitle": "Lazy Wrap Demo",
+  "homeTitle": "Lazy Wrap Demo",
+  "homeSubtitle": "A high-performance Flutter web demo to render huge grids smoothly. Pick a mode to begin.",
+  "fixedModeTitle": "Fixed mode",
+  "fixedModeDescription": "All cards share the same size. Best for maximum scroll speed.",
+  "dynamicModeTitle": "Dynamic mode",
+  "dynamicModeDescription": "Each card has a unique random size. Great for masonry-like content.",
+  "startDemo": "Start demo",
+  "madeBy": "Made by @Henselldev",
+  "themeLabel": "Theme",
+  "themeSystem": "System",
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "languageLabel": "Language",
+  "languageSystem": "System",
+  "languageSpanish": "Spanish",
+  "languageEnglish": "English",
+  "gridFixedTitle": "Fixed Mode",
+  "gridDynamicTitle": "Dynamic Mode",
+  "gridFixedHeadline": "Fixed-size cards for top performance",
+  "gridDynamicHeadline": "Variable-size cards for flexible layouts",
+  "gridDescription": "Scroll, switch orientation, and adjust border radius to compare behavior.",
+  "toggleDirectionTooltip": "Toggle scroll direction",
+  "directionLabel": "Direction",
+  "directionVertical": "Vertical",
+  "directionHorizontal": "Horizontal",
+  "borderRadius": "Border radius",
+  "scrollInstruction": "Try scrolling {arrow} and switch direction anytime.",
+  "@scrollInstruction": {
+    "placeholders": {
+      "arrow": {
+        "type": "String"
+      }
+    }
+  },
+  "switchingLayout": "Switching layout...",
+  "openSiteError": "Could not open website.",
+  "fixedItemLabel": "Item {index}",
+  "@fixedItemLabel": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  }
+}

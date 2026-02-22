@@ -1,16 +1,36 @@
-# lazy_wrap_demo
+# Lazy Wrap Demo (Flutter Web)
 
-A new Flutter project.
+Demo interactivo para mostrar el rendimiento de `lazy_wrap` en dos modos:
 
-## Getting Started
+- **Fixed mode**: tarjetas de tamaño fijo (máximo rendimiento).
+- **Dynamic mode**: tarjetas de tamaño variable (layout flexible).
 
-This project is a starting point for a Flutter application.
+## Mejoras incluidas
 
-A few resources to get you started if this is your first Flutter project:
+- Localización completa en **Español** e **Inglés**.
+- Selector manual de idioma + opción **System** (detecta navegador/sistema).
+- Soporte de tema **Light / Dark / System** con persistencia local.
+- Rediseño UI/UX responsive para web (desktop/tablet/mobile).
+- Mejoras de contraste y legibilidad en ambos temas.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Ejecutar
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+flutter pub get
+flutter run -d chrome
+```
+
+## Pruebas
+
+```bash
+flutter test
+```
+
+## Estructura principal
+
+- `lib/app/`: bootstrap de app y configuración global.
+- `lib/theme/`: temas light/dark.
+- `lib/l10n/`: recursos ARB para localización.
+- `lib/features/home/`: pantalla de inicio y selección de modo.
+- `lib/features/demo/`: pantalla del demo de grid.
+- `lib/shared/preferences/`: estado y persistencia de idioma/tema.
