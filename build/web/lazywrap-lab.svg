@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="LazyWrap Lab">
+  <rect width="128" height="128" rx="30" fill="#10211D"/>
+  <path d="M29 31h14v52h24v14H29V31Z" fill="#5DE2C4"/>
+  <path d="M62 43h13l9 31 9-31h12L90 97H78L62 43Z" fill="#F4F8F7"/>
+  <circle cx="102" cy="27" r="9" fill="#FFC857"/>
+</svg>

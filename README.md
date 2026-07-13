@@ -1,17 +1,19 @@
-# Lazy Wrap Demo (Flutter Web)
+# LazyWrap Lab
 
-Demo interactivo para mostrar el rendimiento de `lazy_wrap` en dos modos:
+Laboratorio interactivo y responsive para explorar [`lazy_wrap`](https://pub.dev/packages/lazy_wrap), un widget Flutter que combina layouts 2D tipo `Wrap` con renderizado lazy.
 
-- **Fixed mode**: tarjetas de tamaño fijo (máximo rendimiento).
-- **Dynamic mode**: tarjetas de tamaño variable (layout flexible).
+## Experiencia
 
-## Mejoras incluidas
-
-- Localización completa en **Español** e **Inglés**.
-- Selector manual de idioma + opción **System** (detecta navegador/sistema).
-- Soporte de tema **Light / Dark / System** con persistencia local.
-- Rediseño UI/UX responsive para web (desktop/tablet/mobile).
-- Mejoras de contraste y legibilidad en ambos temas.
+- Inicio editorial con una explicación clara de los beneficios del paquete.
+- Playground unificado para alternar entre geometría fija y dinámica.
+- Colecciones configurables de 1K, 100K o 1M de elementos.
+- Controles en vivo para dirección, tamaño, espaciado y radio de esquina.
+- Geometría dinámica determinista y acción para variar el layout sin cachés crecientes.
+- Generación de un snippet Flutter a partir de la configuración actual.
+- Diseño responsive para escritorio, tablet y móvil.
+- Temas claro, oscuro y del sistema con persistencia local.
+- Localización completa en español e inglés.
+- Navegación por teclado, targets táctiles amplios y semántica accesible.
 
 ## Ejecutar
 
@@ -20,17 +22,20 @@ flutter pub get
 flutter run -d chrome
 ```
 
-## Pruebas
+## Calidad
 
 ```bash
+dart format --output=none --set-exit-if-changed lib test
+flutter analyze --fatal-infos --fatal-warnings
 flutter test
+flutter build web
 ```
 
-## Estructura principal
+## Estructura
 
-- `lib/app/`: bootstrap de app y configuración global.
-- `lib/theme/`: temas light/dark.
-- `lib/l10n/`: recursos ARB para localización.
-- `lib/features/home/`: pantalla de inicio y selección de modo.
-- `lib/features/demo/`: pantalla del demo de grid.
-- `lib/shared/preferences/`: estado y persistencia de idioma/tema.
+- `lib/app/`: configuración global de la aplicación.
+- `lib/features/home/`: overview y selección del punto de partida.
+- `lib/features/demo/`: playground interactivo de `LazyWrap`.
+- `lib/l10n/`: recursos de localización ES/EN.
+- `lib/shared/`: preferencias persistentes y componentes compartidos.
+- `lib/theme/`: sistema visual claro y oscuro.

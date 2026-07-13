@@ -8,37 +8,20 @@ import '../shared/preferences/ui_preferences_controller.dart';
 import '../theme/app_theme.dart';
 import 'custom_scroll_behavior.dart';
 
-class LazyWrapDemoApp extends StatefulWidget {
-  const LazyWrapDemoApp({super.key});
+class LazyWrapDemoApp extends StatelessWidget {
+  const LazyWrapDemoApp({super.key, required this.preferencesController});
 
-  @override
-  State<LazyWrapDemoApp> createState() => _LazyWrapDemoAppState();
-}
-
-class _LazyWrapDemoAppState extends State<LazyWrapDemoApp> {
-  late final UiPreferencesController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = UiPreferencesController()..load();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
+  final UiPreferencesController preferencesController;
 
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: _controller,
+      animation: preferencesController,
       builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'Lazy Wrap Demo',
-          locale: _controller.value.locale,
+          onGenerateTitle: (context) => AppLocalizations.of(context)!.appTitle,
+          locale: preferencesController.value.locale,
           supportedLocales: supportedLocales,
           localizationsDelegates: const [
             AppLocalizations.delegate,
@@ -48,9 +31,9 @@ class _LazyWrapDemoAppState extends State<LazyWrapDemoApp> {
           ],
           theme: AppTheme.light(),
           darkTheme: AppTheme.dark(),
-          themeMode: _controller.value.themeMode,
+          themeMode: preferencesController.value.themeMode,
           scrollBehavior: CustomScrollBehavior(),
-          home: HomePage(preferencesController: _controller),
+          home: HomePage(preferencesController: preferencesController),
         );
       },
     );

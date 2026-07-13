@@ -9,31 +9,95 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get appTitle => 'Lazy Wrap Demo';
+  String get appTitle => 'LazyWrap Lab';
 
   @override
-  String get homeTitle => 'Lazy Wrap Demo';
+  String get brandTagline => 'Flutter performance playground';
 
   @override
-  String get homeSubtitle => 'A high-performance Flutter web demo to render huge grids smoothly. Pick a mode to begin.';
+  String get heroEyebrow => 'LAZY_WRAP 1.1.1 · READY TO EXPERIMENT';
 
   @override
-  String get fixedModeTitle => 'Fixed mode';
+  String get heroTitle => 'Wrap layouts. Lazy by default.';
 
   @override
-  String get fixedModeDescription => 'All cards share the same size. Best for maximum scroll speed.';
+  String get heroSubtitle =>
+      'Render a million items without building a million widgets. Explore fixed and dynamic layouts in a hands-on Flutter playground.';
 
   @override
-  String get dynamicModeTitle => 'Dynamic mode';
+  String get openPlayground => 'Open playground';
 
   @override
-  String get dynamicModeDescription => 'Each card has a unique random size. Great for masonry-like content.';
+  String get viewPackage => 'View package';
 
   @override
-  String get startDemo => 'Start demo';
+  String get heroCanvasLabel => 'LIVE CANVAS';
 
   @override
-  String get madeBy => 'Made by @Henselldev';
+  String get heroCanvasCaption => 'items configured';
+
+  @override
+  String get benefitWrapTitle => 'True 2D wrap layouts';
+
+  @override
+  String get benefitWrapDescription =>
+      'Keep the natural flow of Wrap for cards, chips, and mixed content.';
+
+  @override
+  String get benefitLazyTitle => 'Build only what\'s needed';
+
+  @override
+  String get benefitLazyDescription =>
+      'Lazy rendering keeps huge collections responsive and memory-conscious.';
+
+  @override
+  String get benefitDirectionTitle => 'Scroll both ways';
+
+  @override
+  String get benefitDirectionDescription =>
+      'Switch between vertical and horizontal layouts without rewriting your UI.';
+
+  @override
+  String get chooseModeEyebrow => 'TWO ENGINES, ONE PLAYGROUND';
+
+  @override
+  String get chooseModeTitle => 'Pick your starting point';
+
+  @override
+  String get chooseModeSubtitle =>
+      'Start with uniform geometry for maximum speed or let every item define its own size. You can switch modes at any time.';
+
+  @override
+  String get fixedModeTitle => 'Fixed geometry';
+
+  @override
+  String get fixedModeDescription =>
+      'Uniform cards with predictable dimensions and the fastest possible layout path.';
+
+  @override
+  String get fixedModeBadge => 'FASTEST';
+
+  @override
+  String get dynamicModeTitle => 'Dynamic geometry';
+
+  @override
+  String get dynamicModeDescription =>
+      'Variable-size items measured lazily for flexible, wrap-like compositions.';
+
+  @override
+  String get dynamicModeBadge => 'FLEXIBLE';
+
+  @override
+  String get exploreMode => 'Explore mode';
+
+  @override
+  String get madeBy => 'Crafted by @Henselldev';
+
+  @override
+  String get viewOnGitHub => 'View on GitHub';
+
+  @override
+  String get openSiteError => 'Could not open that link.';
 
   @override
   String get themeLabel => 'Theme';
@@ -60,25 +124,28 @@ class AppLocalizationsEn extends AppLocalizations {
   String get languageEnglish => 'English';
 
   @override
-  String get gridFixedTitle => 'Fixed Mode';
+  String get playgroundTitle => 'LazyWrap Playground';
 
   @override
-  String get gridDynamicTitle => 'Dynamic Mode';
+  String get playgroundSubtitle => 'Tune the layout and see every change live.';
 
   @override
-  String get gridFixedHeadline => 'Fixed-size cards for top performance';
+  String get backToOverview => 'Back to overview';
 
   @override
-  String get gridDynamicHeadline => 'Variable-size cards for flexible layouts';
+  String get controlsTitle => 'Lab controls';
 
   @override
-  String get gridDescription => 'Scroll, switch orientation, and adjust border radius to compare behavior.';
+  String get modeLabel => 'Layout mode';
 
   @override
-  String get toggleDirectionTooltip => 'Toggle scroll direction';
+  String get fixedModeShort => 'Fixed';
 
   @override
-  String get directionLabel => 'Direction';
+  String get dynamicModeShort => 'Dynamic';
+
+  @override
+  String get directionLabel => 'Scroll direction';
 
   @override
   String get directionVertical => 'Vertical';
@@ -87,21 +154,45 @@ class AppLocalizationsEn extends AppLocalizations {
   String get directionHorizontal => 'Horizontal';
 
   @override
-  String get borderRadius => 'Border radius';
+  String get itemCountLabel => 'Collection size';
 
   @override
-  String scrollInstruction(String arrow) {
-    return 'Try scrolling $arrow and switch direction anytime.';
-  }
+  String get itemSizeLabel => 'Item size';
 
   @override
-  String get switchingLayout => 'Switching layout...';
+  String get spacingLabel => 'Spacing';
 
   @override
-  String get openSiteError => 'Could not open website.';
+  String get borderRadius => 'Corner radius';
 
   @override
-  String fixedItemLabel(int index) {
+  String get reset => 'Reset';
+
+  @override
+  String get shuffleLayout => 'Shuffle layout';
+
+  @override
+  String get fixedModeTip =>
+      'Fixed mode knows each item\'s geometry up front, so it can calculate rows with minimal layout work.';
+
+  @override
+  String get dynamicModeTip =>
+      'Dynamic mode measures variable items in controlled batches and renders them lazily.';
+
+  @override
+  String get openControls => 'Open layout controls';
+
+  @override
+  String get previewTitle => 'Live preview';
+
+  @override
+  String get copyCode => 'Copy configuration as code';
+
+  @override
+  String get codeCopied => 'Flutter snippet copied to the clipboard.';
+
+  @override
+  String itemSemanticLabel(int index) {
     return 'Item $index';
   }
 }

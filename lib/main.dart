@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'app/app.dart';
+import 'shared/preferences/ui_preferences_controller.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const LazyWrapDemoApp());
+  final preferencesController = UiPreferencesController();
+  await preferencesController.load();
+  runApp(LazyWrapDemoApp(preferencesController: preferencesController));
 }

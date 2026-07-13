@@ -9,12 +9,14 @@ class UiPreferencesController extends ChangeNotifier {
 
   UiPreferences _value = const UiPreferences();
   bool _isReady = false;
+  SharedPreferences? _preferences;
+  Future<void> _pendingWrite = Future<void>.value();
 
   UiPreferences get value => _value;
   bool get isReady => _isReady;
 
   Future<void> load() async {
-    final prefs = await SharedPreferences.getInstance();
+    final prefs = _preferences ??= await SharedPreferences.getInstance();
     final theme = prefs.getString(_themeKey);
     final language = prefs.getString(_languageKey);
 
@@ -27,19 +29,28 @@ class UiPreferencesController extends ChangeNotifier {
   }
 
   Future<void> setTheme(AppThemePreference next) async {
+    if (_value.themePreference == next) return;
     _value = _value.copyWith(themePreference: next);
     notifyListeners();
-
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_themeKey, next.name);
+    await _queueWrite((prefs) => prefs.setString(_themeKey, next.name));
   }
 
   Future<void> setLanguage(AppLanguagePreference next) async {
+    if (_value.languagePreference == next) return;
     _value = _value.copyWith(languagePreference: next);
     notifyListeners();
+    await _queueWrite((prefs) => prefs.setString(_languageKey, next.name));
+  }
 
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_languageKey, next.name);
+  Future<void> _queueWrite(
+    Future<bool> Function(SharedPreferences preferences) action,
+  ) {
+    _pendingWrite = _pendingWrite.then((_) async {
+      final preferences = _preferences ??=
+          await SharedPreferences.getInstance();
+      await action(preferences);
+    });
+    return _pendingWrite;
   }
 
   AppThemePreference _parseTheme(String? raw) {

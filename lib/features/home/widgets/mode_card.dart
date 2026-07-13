@@ -1,147 +1,192 @@
 import 'package:flutter/material.dart';
 import 'package:lazy_wrap_demo/l10n/app_localizations.dart';
 
-class ModeCard extends StatelessWidget {
+class ModeCard extends StatefulWidget {
   const ModeCard({
     super.key,
     required this.icon,
     required this.title,
     required this.description,
+    required this.badge,
     required this.onTap,
     required this.tint,
+    required this.dynamicPreview,
   });
 
   final IconData icon;
   final String title;
   final String description;
+  final String badge;
   final VoidCallback onTap;
   final Color tint;
+  final bool dynamicPreview;
+
+  @override
+  State<ModeCard> createState() => _ModeCardState();
+}
+
+class _ModeCardState extends State<ModeCard> {
+  bool _highlighted = false;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context)!;
-    final width = MediaQuery.sizeOf(context).width;
-    final isXs = width < 420;
 
-    return Container(
-      decoration: BoxDecoration(
-        color: theme.cardTheme.color ?? theme.colorScheme.surfaceContainerHighest,
-        borderRadius: BorderRadius.circular(24),
-        boxShadow: [
-          BoxShadow(
-            color: tint.withValues(alpha: 0.05),
-            blurRadius: 24,
-            offset: const Offset(0, 8),
+    return Semantics(
+      button: true,
+      label: '${widget.title}. ${widget.description}',
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 180),
+        decoration: BoxDecoration(
+          color: theme.colorScheme.surfaceContainerLowest,
+          borderRadius: BorderRadius.circular(26),
+          border: Border.all(
+            color: _highlighted
+                ? widget.tint
+                : theme.colorScheme.outlineVariant,
+            width: _highlighted ? 2 : 1,
           ),
-        ],
-        border: Border.all(
-          color: tint.withValues(alpha: 0.1),
-          width: 1.5,
+          boxShadow: [
+            BoxShadow(
+              color: widget.tint.withValues(alpha: _highlighted ? 0.15 : 0.06),
+              blurRadius: _highlighted ? 32 : 20,
+              offset: const Offset(0, 12),
+            ),
+          ],
         ),
-      ),
-      clipBehavior: Clip.antiAlias,
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: onTap,
-          child: Padding(
-            padding: EdgeInsets.all(isXs ? 16 : 24),
-            child: isXs
-                ? _buildHorizontalLayout(theme, l10n)
-                : _buildVerticalLayout(theme, l10n),
+        clipBehavior: Clip.antiAlias,
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: widget.onTap,
+            onHover: (value) => setState(() => _highlighted = value),
+            onFocusChange: (value) => setState(() => _highlighted = value),
+            child: Padding(
+              padding: const EdgeInsets.all(24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        width: 52,
+                        height: 52,
+                        decoration: BoxDecoration(
+                          color: widget.tint.withValues(alpha: 0.12),
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Icon(widget.icon, color: widget.tint, size: 26),
+                      ),
+                      const Spacer(),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 6,
+                        ),
+                        decoration: BoxDecoration(
+                          color: widget.tint.withValues(alpha: 0.1),
+                          borderRadius: BorderRadius.circular(99),
+                        ),
+                        child: Text(
+                          widget.badge,
+                          style: theme.textTheme.labelSmall?.copyWith(
+                            color: widget.tint,
+                            fontWeight: FontWeight.w900,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 24),
+                  _ModePreview(
+                    tint: widget.tint,
+                    dynamicPreview: widget.dynamicPreview,
+                  ),
+                  const SizedBox(height: 24),
+                  Text(widget.title, style: theme.textTheme.headlineSmall),
+                  const SizedBox(height: 8),
+                  Text(
+                    widget.description,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: theme.colorScheme.onSurfaceVariant,
+                      height: 1.5,
+                    ),
+                  ),
+                  const SizedBox(height: 22),
+                  Row(
+                    children: [
+                      Text(
+                        l10n.exploreMode,
+                        style: theme.textTheme.labelLarge?.copyWith(
+                          color: widget.tint,
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      AnimatedSlide(
+                        duration: const Duration(milliseconds: 180),
+                        offset: _highlighted
+                            ? const Offset(0.18, 0)
+                            : Offset.zero,
+                        child: Icon(
+                          Icons.arrow_forward_rounded,
+                          color: widget.tint,
+                          size: 20,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
       ),
     );
   }
+}
 
-  Widget _buildHorizontalLayout(ThemeData theme, AppLocalizations l10n) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        _buildIcon(theme, isXs: true),
-        const SizedBox(width: 16),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+class _ModePreview extends StatelessWidget {
+  const _ModePreview({required this.tint, required this.dynamicPreview});
+
+  final Color tint;
+  final bool dynamicPreview;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final widths = dynamicPreview
+        ? const [0.34, 0.22, 0.36, 0.25, 0.42, 0.22]
+        : const [0.29, 0.29, 0.29, 0.29, 0.29, 0.29];
+
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return Container(
+          height: 112,
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: theme.colorScheme.surfaceContainerLow,
+            borderRadius: BorderRadius.circular(17),
+            border: Border.all(color: theme.colorScheme.outlineVariant),
+          ),
+          child: Wrap(
+            spacing: 8,
+            runSpacing: 8,
             children: [
-              Text(
-                title,
-                style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
-              ),
-              const SizedBox(height: 4),
-              Text(
-                description,
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  color: theme.colorScheme.onSurfaceVariant,
-                  height: 1.35,
+              for (var index = 0; index < widths.length; index++)
+                Container(
+                  width: constraints.maxWidth * widths[index],
+                  height: dynamicPreview ? (index.isEven ? 34 : 28) : 34,
+                  decoration: BoxDecoration(
+                    color: tint.withValues(alpha: 0.12 + index * 0.025),
+                    borderRadius: BorderRadius.circular(9),
+                    border: Border.all(color: tint.withValues(alpha: 0.22)),
+                  ),
                 ),
-              ),
-              const SizedBox(height: 12),
-              FilledButton.tonalIcon(
-                onPressed: onTap,
-                icon: const Icon(Icons.arrow_forward_rounded, size: 18),
-                label: Text(l10n.startDemo),
-                style: FilledButton.styleFrom(
-                  visualDensity: VisualDensity.compact,
-                ),
-              ),
             ],
           ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildVerticalLayout(ThemeData theme, AppLocalizations l10n) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        _buildIcon(theme, isXs: false),
-        const SizedBox(height: 16),
-        Text(
-          title,
-          style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          description,
-          style: theme.textTheme.bodyMedium?.copyWith(
-            color: theme.colorScheme.onSurfaceVariant,
-            height: 1.35,
-          ),
-        ),
-        const SizedBox(height: 16),
-        FilledButton.tonalIcon(
-          onPressed: onTap,
-          icon: const Icon(Icons.arrow_forward_rounded),
-          label: Text(l10n.startDemo),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildIcon(ThemeData theme, {required bool isXs}) {
-    return Container(
-      height: isXs ? 48 : 56,
-      width: isXs ? 48 : 56,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            tint.withValues(alpha: 0.25),
-            tint.withValues(alpha: 0.05),
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(
-          color: tint.withValues(alpha: 0.2),
-          width: 1,
-        ),
-      ),
-      child: Icon(icon, color: tint, size: isXs ? 24 : 28),
+        );
+      },
     );
   }
 }
