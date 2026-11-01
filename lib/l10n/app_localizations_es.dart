@@ -12,17 +12,16 @@ class AppLocalizationsEs extends AppLocalizations {
   String get appTitle => 'LazyWrap Lab';
 
   @override
-  String get brandTagline => 'Laboratorio de rendimiento Flutter';
+  String get brandTagline => 'Laboratorio de layouts Flutter';
 
   @override
-  String get heroEyebrow => 'LAZY_WRAP 1.1.1 · LISTO PARA EXPERIMENTAR';
+  String get heroEyebrow => 'LABORATORIO FLUTTER INTERACTIVO';
 
   @override
   String get heroTitle => 'Layouts wrap. Lazy por defecto.';
 
   @override
-  String get heroSubtitle =>
-      'Renderiza un millón de elementos sin construir un millón de widgets. Explora layouts fijos y dinámicos en un laboratorio Flutter interactivo.';
+  String get heroSubtitle => 'Renderiza un millón de elementos sin construir un millón de widgets. Explora layouts fijos y dinámicos en un laboratorio Flutter interactivo.';
 
   @override
   String get openPlayground => 'Abrir laboratorio';
@@ -31,31 +30,28 @@ class AppLocalizationsEs extends AppLocalizations {
   String get viewPackage => 'Ver paquete';
 
   @override
-  String get heroCanvasLabel => 'CANVAS EN VIVO';
+  String get heroCanvasLabel => 'VISTA DEL WRAP';
 
   @override
-  String get heroCanvasCaption => 'elementos configurados';
+  String get heroCanvasCaption => 'tamaño de la colección';
 
   @override
   String get benefitWrapTitle => 'Layouts wrap 2D reales';
 
   @override
-  String get benefitWrapDescription =>
-      'Conserva el flujo natural de Wrap para tarjetas, chips y contenido mixto.';
+  String get benefitWrapDescription => 'Conserva el flujo natural de Wrap para tarjetas, chips y contenido mixto.';
 
   @override
   String get benefitLazyTitle => 'Construye solo lo necesario';
 
   @override
-  String get benefitLazyDescription =>
-      'El renderizado lazy mantiene ágiles las colecciones enormes y cuida la memoria.';
+  String get benefitLazyDescription => 'Construye los elementos a medida que se necesitan, en lugar de crear de una vez todos los widgets de una colección grande.';
 
   @override
   String get benefitDirectionTitle => 'Scroll en ambas direcciones';
 
   @override
-  String get benefitDirectionDescription =>
-      'Alterna entre layouts verticales y horizontales sin reescribir tu interfaz.';
+  String get benefitDirectionDescription => 'Alterna entre layouts verticales y horizontales sin reescribir tu interfaz.';
 
   @override
   String get chooseModeEyebrow => 'DOS MOTORES, UN LABORATORIO';
@@ -64,25 +60,22 @@ class AppLocalizationsEs extends AppLocalizations {
   String get chooseModeTitle => 'Elige tu punto de partida';
 
   @override
-  String get chooseModeSubtitle =>
-      'Usa geometría uniforme para máxima velocidad o permite que cada elemento defina su tamaño. Puedes cambiar de modo cuando quieras.';
+  String get chooseModeSubtitle => 'Usa geometría fija si todos los elementos comparten dimensiones conocidas, o elige geometría dinámica para tamaños variables. Puedes cambiar de modo cuando quieras.';
 
   @override
   String get fixedModeTitle => 'Geometría fija';
 
   @override
-  String get fixedModeDescription =>
-      'Tarjetas uniformes con dimensiones predecibles y la ruta de layout más rápida.';
+  String get fixedModeDescription => 'Tarjetas uniformes con ancho y alto conocidos. LazyWrap las organiza sin medir cada widget.';
 
   @override
-  String get fixedModeBadge => 'MÁS RÁPIDO';
+  String get fixedModeBadge => 'UNIFORME';
 
   @override
   String get dynamicModeTitle => 'Geometría dinámica';
 
   @override
-  String get dynamicModeDescription =>
-      'Elementos de tamaño variable medidos de forma lazy para composiciones flexibles.';
+  String get dynamicModeDescription => 'Elementos de tamaño variable medidos de forma lazy para composiciones flexibles.';
 
   @override
   String get dynamicModeBadge => 'FLEXIBLE';
@@ -127,8 +120,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get playgroundTitle => 'Laboratorio LazyWrap';
 
   @override
-  String get playgroundSubtitle =>
-      'Ajusta el layout y observa cada cambio en vivo.';
+  String get playgroundSubtitle => 'Ajusta el layout y observa cada cambio en vivo.';
 
   @override
   String get backToOverview => 'Volver al inicio';
@@ -173,12 +165,10 @@ class AppLocalizationsEs extends AppLocalizations {
   String get shuffleLayout => 'Variar layout';
 
   @override
-  String get fixedModeTip =>
-      'El modo fijo conoce la geometría de cada elemento y calcula las filas con el mínimo trabajo de layout.';
+  String get fixedModeTip => 'Elige el modo fijo si todos los elementos comparten dimensiones conocidas de antemano. Usa el modo dinámico para tamaños distintos o desconocidos.';
 
   @override
-  String get dynamicModeTip =>
-      'El modo dinámico mide elementos variables en lotes controlados y los renderiza de forma lazy.';
+  String get dynamicModeTip => 'El modo dinámico mide elementos variables en lotes controlados y los renderiza de forma lazy.';
 
   @override
   String get openControls => 'Abrir controles del layout';

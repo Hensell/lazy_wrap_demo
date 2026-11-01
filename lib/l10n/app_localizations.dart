@@ -62,8 +62,7 @@ import 'app_localizations_es.dart';
 /// be consistent with the languages listed in the AppLocalizations.supportedLocales
 /// property.
 abstract class AppLocalizations {
-  AppLocalizations(String locale)
-    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  AppLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -71,8 +70,7 @@ abstract class AppLocalizations {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 
-  static const LocalizationsDelegate<AppLocalizations> delegate =
-      _AppLocalizationsDelegate();
+  static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -84,18 +82,17 @@ abstract class AppLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
-      <LocalizationsDelegate<dynamic>>[
-        delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ];
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
+    delegate,
+    GlobalMaterialLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+  ];
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('en'),
-    Locale('es'),
+    Locale('es')
   ];
 
   /// No description provided for @appTitle.
@@ -107,13 +104,13 @@ abstract class AppLocalizations {
   /// No description provided for @brandTagline.
   ///
   /// In en, this message translates to:
-  /// **'Flutter performance playground'**
+  /// **'Flutter layout playground'**
   String get brandTagline;
 
   /// No description provided for @heroEyebrow.
   ///
   /// In en, this message translates to:
-  /// **'LAZY_WRAP 1.1.1 · READY TO EXPERIMENT'**
+  /// **'INTERACTIVE FLUTTER PLAYGROUND'**
   String get heroEyebrow;
 
   /// No description provided for @heroTitle.
@@ -143,13 +140,13 @@ abstract class AppLocalizations {
   /// No description provided for @heroCanvasLabel.
   ///
   /// In en, this message translates to:
-  /// **'LIVE CANVAS'**
+  /// **'WRAP PREVIEW'**
   String get heroCanvasLabel;
 
   /// No description provided for @heroCanvasCaption.
   ///
   /// In en, this message translates to:
-  /// **'items configured'**
+  /// **'collection size'**
   String get heroCanvasCaption;
 
   /// No description provided for @benefitWrapTitle.
@@ -173,7 +170,7 @@ abstract class AppLocalizations {
   /// No description provided for @benefitLazyDescription.
   ///
   /// In en, this message translates to:
-  /// **'Lazy rendering keeps huge collections responsive and memory-conscious.'**
+  /// **'Build items as they are needed instead of creating every widget in a large collection up front.'**
   String get benefitLazyDescription;
 
   /// No description provided for @benefitDirectionTitle.
@@ -203,7 +200,7 @@ abstract class AppLocalizations {
   /// No description provided for @chooseModeSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Start with uniform geometry for maximum speed or let every item define its own size. You can switch modes at any time.'**
+  /// **'Use fixed geometry when every item shares known dimensions, or choose dynamic geometry for variable sizes. Switch modes any time.'**
   String get chooseModeSubtitle;
 
   /// No description provided for @fixedModeTitle.
@@ -215,13 +212,13 @@ abstract class AppLocalizations {
   /// No description provided for @fixedModeDescription.
   ///
   /// In en, this message translates to:
-  /// **'Uniform cards with predictable dimensions and the fastest possible layout path.'**
+  /// **'Uniform cards with known width and height. LazyWrap places them without measuring each child.'**
   String get fixedModeDescription;
 
   /// No description provided for @fixedModeBadge.
   ///
   /// In en, this message translates to:
-  /// **'FASTEST'**
+  /// **'UNIFORM'**
   String get fixedModeBadge;
 
   /// No description provided for @dynamicModeTitle.
@@ -413,7 +410,7 @@ abstract class AppLocalizations {
   /// No description provided for @fixedModeTip.
   ///
   /// In en, this message translates to:
-  /// **'Fixed mode knows each item\'s geometry up front, so it can calculate rows with minimal layout work.'**
+  /// **'Choose fixed mode when every child shares dimensions you know in advance. Use dynamic mode for mixed or unknown sizes.'**
   String get fixedModeTip;
 
   /// No description provided for @dynamicModeTip.
@@ -453,8 +450,7 @@ abstract class AppLocalizations {
   String itemSemanticLabel(int index);
 }
 
-class _AppLocalizationsDelegate
-    extends LocalizationsDelegate<AppLocalizations> {
+class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
   const _AppLocalizationsDelegate();
 
   @override
@@ -463,26 +459,25 @@ class _AppLocalizationsDelegate
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['en', 'es'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['en', 'es'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
 }
 
 AppLocalizations lookupAppLocalizations(Locale locale) {
+
+
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en':
-      return AppLocalizationsEn();
-    case 'es':
-      return AppLocalizationsEs();
+    case 'en': return AppLocalizationsEn();
+    case 'es': return AppLocalizationsEs();
   }
 
   throw FlutterError(
     'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
     'an issue with the localizations generation tool. Please file an issue '
     'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.',
+    'that was used.'
   );
 }
