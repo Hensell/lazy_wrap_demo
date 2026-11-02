@@ -7,7 +7,6 @@ class ModeCard extends StatefulWidget {
     required this.icon,
     required this.title,
     required this.description,
-    required this.badge,
     required this.onTap,
     required this.tint,
     required this.dynamicPreview,
@@ -16,7 +15,6 @@ class ModeCard extends StatefulWidget {
   final IconData icon;
   final String title;
   final String description;
-  final String badge;
   final VoidCallback onTap;
   final Color tint;
   final bool dynamicPreview;
@@ -40,20 +38,12 @@ class _ModeCardState extends State<ModeCard> {
         duration: const Duration(milliseconds: 180),
         decoration: BoxDecoration(
           color: theme.colorScheme.surfaceContainerLowest,
-          borderRadius: BorderRadius.circular(26),
+          borderRadius: BorderRadius.circular(20),
           border: Border.all(
             color: _highlighted
                 ? widget.tint
                 : theme.colorScheme.outlineVariant,
-            width: _highlighted ? 2 : 1,
           ),
-          boxShadow: [
-            BoxShadow(
-              color: widget.tint.withValues(alpha: _highlighted ? 0.15 : 0.06),
-              blurRadius: _highlighted ? 32 : 20,
-              offset: const Offset(0, 12),
-            ),
-          ],
         ),
         clipBehavior: Clip.antiAlias,
         child: Material(
@@ -78,24 +68,6 @@ class _ModeCardState extends State<ModeCard> {
                         ),
                         child: Icon(widget.icon, color: widget.tint, size: 26),
                       ),
-                      const Spacer(),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 6,
-                        ),
-                        decoration: BoxDecoration(
-                          color: widget.tint.withValues(alpha: 0.1),
-                          borderRadius: BorderRadius.circular(99),
-                        ),
-                        child: Text(
-                          widget.badge,
-                          style: theme.textTheme.labelSmall?.copyWith(
-                            color: widget.tint,
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                      ),
                     ],
                   ),
                   const SizedBox(height: 24),
@@ -117,7 +89,7 @@ class _ModeCardState extends State<ModeCard> {
                   Row(
                     children: [
                       Text(
-                        l10n.exploreMode,
+                        '${l10n.tryMode} ${widget.title}',
                         style: theme.textTheme.labelLarge?.copyWith(
                           color: widget.tint,
                         ),

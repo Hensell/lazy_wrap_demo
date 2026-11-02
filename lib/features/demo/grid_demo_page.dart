@@ -263,7 +263,6 @@ class _PlaygroundHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
-    final compact = MediaQuery.sizeOf(context).width < 760;
 
     return Row(
       children: [
@@ -281,13 +280,6 @@ class _PlaygroundHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(l10n.playgroundTitle, style: theme.textTheme.titleLarge),
-              if (!compact)
-                Text(
-                  l10n.playgroundSubtitle,
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: theme.colorScheme.onSurfaceVariant,
-                  ),
-                ),
             ],
           ),
         ),
@@ -479,38 +471,6 @@ class _ControlsPanel extends StatelessWidget {
                 label: Text('${l10n.shuffleLayout} · $seed'),
               ),
             ],
-            const SizedBox(height: 20),
-            Container(
-              padding: const EdgeInsets.all(14),
-              decoration: BoxDecoration(
-                color: theme.colorScheme.primaryContainer.withValues(
-                  alpha: 0.55,
-                ),
-                borderRadius: BorderRadius.circular(14),
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Icon(
-                    Icons.lightbulb_outline_rounded,
-                    color: theme.colorScheme.onPrimaryContainer,
-                    size: 19,
-                  ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: Text(
-                      mode == DemoMode.fixed
-                          ? l10n.fixedModeTip
-                          : l10n.dynamicModeTip,
-                      style: theme.textTheme.bodySmall?.copyWith(
-                        color: theme.colorScheme.onPrimaryContainer,
-                        height: 1.45,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
           ],
         ),
       ),
@@ -634,37 +594,19 @@ class _PreviewPanel extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(16, 12, 10, 12),
             child: Row(
               children: [
-                Container(
-                  width: 9,
-                  height: 9,
-                  decoration: BoxDecoration(
-                    color: theme.colorScheme.primary,
-                    shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                        color: theme.colorScheme.primary.withValues(
-                          alpha: 0.45,
-                        ),
-                        blurRadius: 7,
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(width: 9),
                 Expanded(
                   child: Text(
                     l10n.previewTitle,
                     style: theme.textTheme.titleSmall,
                   ),
                 ),
-                _MetaChip(
-                  label: mode == DemoMode.fixed
-                      ? l10n.fixedModeShort
-                      : l10n.dynamicModeShort,
+                Text(
+                  '${mode == DemoMode.fixed ? l10n.fixedModeShort : l10n.dynamicModeShort} · ${_formatItemCount(itemCount)}',
+                  style: theme.textTheme.labelMedium?.copyWith(
+                    color: theme.colorScheme.onSurfaceVariant,
+                  ),
                 ),
-                const SizedBox(width: 6),
-                _MetaChip(label: _formatItemCount(itemCount)),
-                const SizedBox(width: 4),
+                const SizedBox(width: 2),
                 Tooltip(
                   message: l10n.copyCode,
                   child: IconButton(
@@ -769,34 +711,6 @@ class _PreviewPanel extends StatelessWidget {
     1000000 => '1M',
     _ => '$value',
   };
-}
-
-class _MetaChip extends StatelessWidget {
-  const _MetaChip({required this.label});
-
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
-      decoration: BoxDecoration(
-        color: theme.colorScheme.surfaceContainer,
-        borderRadius: BorderRadius.circular(99),
-        border: Border.all(color: theme.colorScheme.outlineVariant),
-      ),
-      child: Text(
-        label,
-        style: theme.textTheme.labelSmall?.copyWith(
-          color: theme.colorScheme.onSurfaceVariant,
-          fontFamily: 'monospace',
-          fontWeight: FontWeight.w800,
-        ),
-      ),
-    );
-  }
 }
 
 class _DemoTile extends StatelessWidget {

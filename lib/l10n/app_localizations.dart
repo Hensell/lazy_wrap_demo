@@ -98,163 +98,67 @@ abstract class AppLocalizations {
   /// No description provided for @appTitle.
   ///
   /// In en, this message translates to:
-  /// **'LazyWrap Lab'**
+  /// **'LazyWrap'**
   String get appTitle;
-
-  /// No description provided for @brandTagline.
-  ///
-  /// In en, this message translates to:
-  /// **'Flutter layout playground'**
-  String get brandTagline;
-
-  /// No description provided for @heroEyebrow.
-  ///
-  /// In en, this message translates to:
-  /// **'INTERACTIVE FLUTTER PLAYGROUND'**
-  String get heroEyebrow;
 
   /// No description provided for @heroTitle.
   ///
   /// In en, this message translates to:
-  /// **'Wrap layouts. Lazy by default.'**
+  /// **'A lazy 2D Wrap for Flutter'**
   String get heroTitle;
-
-  /// No description provided for @heroSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Render a million items without building a million widgets. Explore fixed and dynamic layouts in a hands-on Flutter playground.'**
-  String get heroSubtitle;
 
   /// No description provided for @openPlayground.
   ///
   /// In en, this message translates to:
-  /// **'Open playground'**
+  /// **'Try the playground'**
   String get openPlayground;
 
   /// No description provided for @viewPackage.
   ///
   /// In en, this message translates to:
-  /// **'View package'**
+  /// **'pub.dev'**
   String get viewPackage;
-
-  /// No description provided for @heroCanvasLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'WRAP PREVIEW'**
-  String get heroCanvasLabel;
-
-  /// No description provided for @heroCanvasCaption.
-  ///
-  /// In en, this message translates to:
-  /// **'collection size'**
-  String get heroCanvasCaption;
-
-  /// No description provided for @benefitWrapTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'True 2D wrap layouts'**
-  String get benefitWrapTitle;
-
-  /// No description provided for @benefitWrapDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Keep the natural flow of Wrap for cards, chips, and mixed content.'**
-  String get benefitWrapDescription;
-
-  /// No description provided for @benefitLazyTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Build only what\'s needed'**
-  String get benefitLazyTitle;
-
-  /// No description provided for @benefitLazyDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Build items as they are needed instead of creating every widget in a large collection up front.'**
-  String get benefitLazyDescription;
-
-  /// No description provided for @benefitDirectionTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Scroll both ways'**
-  String get benefitDirectionTitle;
-
-  /// No description provided for @benefitDirectionDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Switch between vertical and horizontal layouts without rewriting your UI.'**
-  String get benefitDirectionDescription;
-
-  /// No description provided for @chooseModeEyebrow.
-  ///
-  /// In en, this message translates to:
-  /// **'TWO ENGINES, ONE PLAYGROUND'**
-  String get chooseModeEyebrow;
 
   /// No description provided for @chooseModeTitle.
   ///
   /// In en, this message translates to:
-  /// **'Pick your starting point'**
+  /// **'Choose a layout'**
   String get chooseModeTitle;
-
-  /// No description provided for @chooseModeSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Use fixed geometry when every item shares known dimensions, or choose dynamic geometry for variable sizes. Switch modes any time.'**
-  String get chooseModeSubtitle;
 
   /// No description provided for @fixedModeTitle.
   ///
   /// In en, this message translates to:
-  /// **'Fixed geometry'**
+  /// **'Fixed'**
   String get fixedModeTitle;
 
   /// No description provided for @fixedModeDescription.
   ///
   /// In en, this message translates to:
-  /// **'Uniform cards with known width and height. LazyWrap places them without measuring each child.'**
+  /// **'Same width and height, set in advance.'**
   String get fixedModeDescription;
-
-  /// No description provided for @fixedModeBadge.
-  ///
-  /// In en, this message translates to:
-  /// **'UNIFORM'**
-  String get fixedModeBadge;
 
   /// No description provided for @dynamicModeTitle.
   ///
   /// In en, this message translates to:
-  /// **'Dynamic geometry'**
+  /// **'Dynamic'**
   String get dynamicModeTitle;
 
   /// No description provided for @dynamicModeDescription.
   ///
   /// In en, this message translates to:
-  /// **'Variable-size items measured lazily for flexible, wrap-like compositions.'**
+  /// **'Different item sizes, measured as needed.'**
   String get dynamicModeDescription;
 
-  /// No description provided for @dynamicModeBadge.
+  /// No description provided for @tryMode.
   ///
   /// In en, this message translates to:
-  /// **'FLEXIBLE'**
-  String get dynamicModeBadge;
-
-  /// No description provided for @exploreMode.
-  ///
-  /// In en, this message translates to:
-  /// **'Explore mode'**
-  String get exploreMode;
-
-  /// No description provided for @madeBy.
-  ///
-  /// In en, this message translates to:
-  /// **'Crafted by @Henselldev'**
-  String get madeBy;
+  /// **'Try'**
+  String get tryMode;
 
   /// No description provided for @viewOnGitHub.
   ///
   /// In en, this message translates to:
-  /// **'View on GitHub'**
+  /// **'GitHub repository'**
   String get viewOnGitHub;
 
   /// No description provided for @openSiteError.
@@ -314,14 +218,8 @@ abstract class AppLocalizations {
   /// No description provided for @playgroundTitle.
   ///
   /// In en, this message translates to:
-  /// **'LazyWrap Playground'**
+  /// **'Playground'**
   String get playgroundTitle;
-
-  /// No description provided for @playgroundSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Tune the layout and see every change live.'**
-  String get playgroundSubtitle;
 
   /// No description provided for @backToOverview.
   ///
@@ -332,7 +230,7 @@ abstract class AppLocalizations {
   /// No description provided for @controlsTitle.
   ///
   /// In en, this message translates to:
-  /// **'Lab controls'**
+  /// **'Controls'**
   String get controlsTitle;
 
   /// No description provided for @modeLabel.
@@ -407,18 +305,6 @@ abstract class AppLocalizations {
   /// **'Shuffle layout'**
   String get shuffleLayout;
 
-  /// No description provided for @fixedModeTip.
-  ///
-  /// In en, this message translates to:
-  /// **'Choose fixed mode when every child shares dimensions you know in advance. Use dynamic mode for mixed or unknown sizes.'**
-  String get fixedModeTip;
-
-  /// No description provided for @dynamicModeTip.
-  ///
-  /// In en, this message translates to:
-  /// **'Dynamic mode measures variable items in controlled batches and renders them lazily.'**
-  String get dynamicModeTip;
-
   /// No description provided for @openControls.
   ///
   /// In en, this message translates to:
@@ -428,7 +314,7 @@ abstract class AppLocalizations {
   /// No description provided for @previewTitle.
   ///
   /// In en, this message translates to:
-  /// **'Live preview'**
+  /// **'Preview'**
   String get previewTitle;
 
   /// No description provided for @copyCode.

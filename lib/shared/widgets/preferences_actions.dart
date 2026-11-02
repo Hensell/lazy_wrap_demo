@@ -82,7 +82,7 @@ class _LanguageMenu extends StatelessWidget {
         if (compact) {
           return Tooltip(
             message: '$label: $selectedLabel',
-            child: IconButton.outlined(
+            child: IconButton(
               key: const Key('language_menu_button'),
               onPressed: onPressed,
               icon: const Icon(Icons.translate_rounded),
@@ -90,7 +90,7 @@ class _LanguageMenu extends StatelessWidget {
           );
         }
 
-        return OutlinedButton.icon(
+        return TextButton.icon(
           key: const Key('language_menu_button'),
           onPressed: onPressed,
           icon: const Icon(Icons.translate_rounded, size: 19),
@@ -151,7 +151,7 @@ class _ThemeMenu extends StatelessWidget {
         if (compact) {
           return Tooltip(
             message: '$label: $selectedLabel',
-            child: IconButton.outlined(
+            child: IconButton(
               key: const Key('theme_menu_button'),
               onPressed: onPressed,
               icon: Icon(icon),
@@ -159,7 +159,7 @@ class _ThemeMenu extends StatelessWidget {
           );
         }
 
-        return OutlinedButton.icon(
+        return TextButton.icon(
           key: const Key('theme_menu_button'),
           onPressed: onPressed,
           icon: Icon(icon, size: 19),

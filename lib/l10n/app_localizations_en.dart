@@ -9,85 +9,37 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get appTitle => 'LazyWrap Lab';
+  String get appTitle => 'LazyWrap';
 
   @override
-  String get brandTagline => 'Flutter layout playground';
+  String get heroTitle => 'A lazy 2D Wrap for Flutter';
 
   @override
-  String get heroEyebrow => 'INTERACTIVE FLUTTER PLAYGROUND';
+  String get openPlayground => 'Try the playground';
 
   @override
-  String get heroTitle => 'Wrap layouts. Lazy by default.';
+  String get viewPackage => 'pub.dev';
 
   @override
-  String get heroSubtitle => 'Render a million items without building a million widgets. Explore fixed and dynamic layouts in a hands-on Flutter playground.';
+  String get chooseModeTitle => 'Choose a layout';
 
   @override
-  String get openPlayground => 'Open playground';
+  String get fixedModeTitle => 'Fixed';
 
   @override
-  String get viewPackage => 'View package';
+  String get fixedModeDescription => 'Same width and height, set in advance.';
 
   @override
-  String get heroCanvasLabel => 'WRAP PREVIEW';
+  String get dynamicModeTitle => 'Dynamic';
 
   @override
-  String get heroCanvasCaption => 'collection size';
+  String get dynamicModeDescription => 'Different item sizes, measured as needed.';
 
   @override
-  String get benefitWrapTitle => 'True 2D wrap layouts';
+  String get tryMode => 'Try';
 
   @override
-  String get benefitWrapDescription => 'Keep the natural flow of Wrap for cards, chips, and mixed content.';
-
-  @override
-  String get benefitLazyTitle => 'Build only what\'s needed';
-
-  @override
-  String get benefitLazyDescription => 'Build items as they are needed instead of creating every widget in a large collection up front.';
-
-  @override
-  String get benefitDirectionTitle => 'Scroll both ways';
-
-  @override
-  String get benefitDirectionDescription => 'Switch between vertical and horizontal layouts without rewriting your UI.';
-
-  @override
-  String get chooseModeEyebrow => 'TWO ENGINES, ONE PLAYGROUND';
-
-  @override
-  String get chooseModeTitle => 'Pick your starting point';
-
-  @override
-  String get chooseModeSubtitle => 'Use fixed geometry when every item shares known dimensions, or choose dynamic geometry for variable sizes. Switch modes any time.';
-
-  @override
-  String get fixedModeTitle => 'Fixed geometry';
-
-  @override
-  String get fixedModeDescription => 'Uniform cards with known width and height. LazyWrap places them without measuring each child.';
-
-  @override
-  String get fixedModeBadge => 'UNIFORM';
-
-  @override
-  String get dynamicModeTitle => 'Dynamic geometry';
-
-  @override
-  String get dynamicModeDescription => 'Variable-size items measured lazily for flexible, wrap-like compositions.';
-
-  @override
-  String get dynamicModeBadge => 'FLEXIBLE';
-
-  @override
-  String get exploreMode => 'Explore mode';
-
-  @override
-  String get madeBy => 'Crafted by @Henselldev';
-
-  @override
-  String get viewOnGitHub => 'View on GitHub';
+  String get viewOnGitHub => 'GitHub repository';
 
   @override
   String get openSiteError => 'Could not open that link.';
@@ -117,16 +69,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get languageEnglish => 'English';
 
   @override
-  String get playgroundTitle => 'LazyWrap Playground';
-
-  @override
-  String get playgroundSubtitle => 'Tune the layout and see every change live.';
+  String get playgroundTitle => 'Playground';
 
   @override
   String get backToOverview => 'Back to overview';
 
   @override
-  String get controlsTitle => 'Lab controls';
+  String get controlsTitle => 'Controls';
 
   @override
   String get modeLabel => 'Layout mode';
@@ -165,16 +114,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get shuffleLayout => 'Shuffle layout';
 
   @override
-  String get fixedModeTip => 'Choose fixed mode when every child shares dimensions you know in advance. Use dynamic mode for mixed or unknown sizes.';
-
-  @override
-  String get dynamicModeTip => 'Dynamic mode measures variable items in controlled batches and renders them lazily.';
-
-  @override
   String get openControls => 'Open layout controls';
 
   @override
-  String get previewTitle => 'Live preview';
+  String get previewTitle => 'Preview';
 
   @override
   String get copyCode => 'Copy configuration as code';

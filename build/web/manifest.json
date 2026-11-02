@@ -1,11 +1,11 @@
 {
-  "name": "LazyWrap Lab",
-  "short_name": "LazyWrap Lab",
+  "name": "LazyWrap",
+  "short_name": "LazyWrap",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#081412",
   "theme_color": "#047D6B",
-  "description": "An interactive Flutter playground for lazy 2D wrap layouts.",
+  "description": "A Flutter demo of lazy 2D wrap layouts.",
   "orientation": "any",
   "prefer_related_applications": false,
   "icons": [
