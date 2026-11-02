@@ -131,34 +131,38 @@ class _ModePreview extends StatelessWidget {
         ? const [0.34, 0.22, 0.36, 0.25, 0.42, 0.22]
         : const [0.29, 0.29, 0.29, 0.29, 0.29, 0.29];
 
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        return Container(
-          height: 112,
-          padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(
-            color: theme.colorScheme.surfaceContainerLow,
-            borderRadius: BorderRadius.circular(17),
-            border: Border.all(color: theme.colorScheme.outlineVariant),
-          ),
-          child: Wrap(
-            spacing: 8,
-            runSpacing: 8,
-            children: [
-              for (var index = 0; index < widths.length; index++)
-                Container(
-                  width: constraints.maxWidth * widths[index],
-                  height: dynamicPreview ? (index.isEven ? 34 : 28) : 34,
-                  decoration: BoxDecoration(
-                    color: tint.withValues(alpha: 0.12 + index * 0.025),
-                    borderRadius: BorderRadius.circular(9),
-                    border: Border.all(color: tint.withValues(alpha: 0.22)),
+    return Container(
+      key: dynamicPreview ? const Key('dynamic_mode_preview_frame') : null,
+      width: double.infinity,
+      height: 112,
+      decoration: BoxDecoration(
+        color: theme.colorScheme.surfaceContainerLow,
+        borderRadius: BorderRadius.circular(17),
+        border: Border.all(color: theme.colorScheme.outlineVariant),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(12),
+        child: LayoutBuilder(
+          builder: (context, contentConstraints) {
+            return Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: [
+                for (var index = 0; index < widths.length; index++)
+                  Container(
+                    width: contentConstraints.maxWidth * widths[index],
+                    height: dynamicPreview ? (index.isEven ? 34 : 28) : 34,
+                    decoration: BoxDecoration(
+                      color: tint.withValues(alpha: 0.12 + index * 0.025),
+                      borderRadius: BorderRadius.circular(9),
+                      border: Border.all(color: tint.withValues(alpha: 0.22)),
+                    ),
                   ),
-                ),
-            ],
-          ),
-        );
-      },
+              ],
+            );
+          },
+        ),
+      ),
     );
   }
 }

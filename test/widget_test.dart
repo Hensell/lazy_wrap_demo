@@ -73,6 +73,26 @@ void main() {
     expect(find.text('Lab controls'), findsOneWidget);
   });
 
+  testWidgets('keeps the dynamic mode preview inside its frame on a phone', (
+    tester,
+  ) async {
+    await _pumpLab(tester, size: const Size(320, 844));
+    final dynamicCard = find.byKey(const Key('mode_dynamic_card'));
+    await tester.ensureVisible(dynamicCard);
+    await tester.pumpAndSettle();
+
+    final frame = find.byKey(const Key('dynamic_mode_preview_frame'));
+    final wrap = find.descendant(of: frame, matching: find.byType(Wrap));
+    final frameRect = tester.getRect(frame);
+    final wrapRect = tester.getRect(wrap);
+
+    expect(wrapRect.left, greaterThanOrEqualTo(frameRect.left));
+    expect(wrapRect.top, greaterThanOrEqualTo(frameRect.top));
+    expect(wrapRect.right, lessThanOrEqualTo(frameRect.right));
+    expect(wrapRect.bottom, lessThanOrEqualTo(frameRect.bottom));
+    expect(tester.takeException(), isNull);
+  });
+
   test('persists language and theme preferences', () async {
     final controller = UiPreferencesController();
     await controller.load();
