@@ -224,57 +224,20 @@ class _HeroCopy extends StatelessWidget {
 class _HeroPreview extends StatelessWidget {
   const _HeroPreview();
 
-  static const _tiles = [
-    (0.30, 44.0),
-    (0.38, 44.0),
-    (0.21, 44.0),
-    (0.45, 58.0),
-    (0.27, 58.0),
-    (0.19, 58.0),
-    (0.40, 38.0),
-    (0.22, 38.0),
-    (0.32, 38.0),
-  ];
-
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final scheme = theme.colorScheme;
-    final tileColors = [
-      scheme.primaryContainer,
-      scheme.secondaryContainer,
-      scheme.tertiaryContainer,
-    ];
+    final l10n = AppLocalizations.of(context)!;
 
-    return Container(
-      height: 220,
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainerLow,
-        borderRadius: BorderRadius.circular(22),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
-      child: LayoutBuilder(
-        builder: (context, constraints) {
-          return Wrap(
-            spacing: 10,
-            runSpacing: 10,
-            children: [
-              for (var index = 0; index < _tiles.length; index++)
-                Container(
-                  width: constraints.maxWidth * _tiles[index].$1,
-                  height: _tiles[index].$2,
-                  decoration: BoxDecoration(
-                    color: tileColors[index % tileColors.length],
-                    borderRadius: BorderRadius.circular(11),
-                    border: Border.all(
-                      color: scheme.outlineVariant.withValues(alpha: 0.75),
-                    ),
-                  ),
-                ),
-            ],
-          );
-        },
+    return AspectRatio(
+      aspectRatio: 16 / 9,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(12),
+        child: Image.asset(
+          'assets/images/lazywrap-playground.png',
+          fit: BoxFit.cover,
+          filterQuality: FilterQuality.medium,
+          semanticLabel: l10n.previewTitle,
+        ),
       ),
     );
   }
